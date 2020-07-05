@@ -48,8 +48,18 @@ services:
       - TZ=Europe/Berlin
     ports:
       - 8880:80
-    restart: always
+    restart: unless-stopped
 
   influxdb:
     image: influxdb
-    restart: always
+    restart: unless-stopped
+    volumes:
+     - ./data/influx:/var/lib/influxdb
+     
+  grafana:
+   image: grafana/grafana
+   restart: unless-stopped
+   ports:
+     - 3000:3000
+   volumes:
+    - ./data/grafana:/var/lib/grafana
