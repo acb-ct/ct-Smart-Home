@@ -49,3 +49,7 @@ services:
     ports:
       - 8880:80
     restart: always
+
+  influxdb:
+    image: influxdb
+    restart: always
