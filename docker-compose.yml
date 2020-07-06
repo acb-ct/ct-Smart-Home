@@ -52,13 +52,13 @@ services:
 
   influxdb:
     image: influxdb
-    restart: unless-stopped
+    restart: always
     volumes:
      - ./data/influx:/var/lib/influxdb
      
   grafana:
    image: grafana/grafana
-   restart: unless-stopped
+   restart: always
    ports:
      - 3000:3000
    volumes:
